@@ -1,0 +1,9 @@
+{
+    "name": "tc/job_ads",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
