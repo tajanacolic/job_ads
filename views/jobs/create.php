@@ -1,8 +1,4 @@
-<h1>Create new job ad</h1>
+<h1 class="view-title">Create new job ad</h1>
 
-<?php
-
-    include_once "_form.php";
-
-?>
+<?php include "_form.php" ?>
 

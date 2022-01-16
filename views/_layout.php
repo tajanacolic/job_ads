@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 
-    <link href="app.css" rel="stylesheet"/>
+    <link href="/app.css" rel="stylesheet"/>
 
     <title>Job Ads</title>
 </head>
@@ -27,16 +27,16 @@
 
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="menu" href="">Create new job ad</a>
+                <a class="menu" href="/jobs/create">Create new job ad</a>
             </li>
             <li class="nav-item">
-                <a class="menu" href="">Job ads</a>
+                <a class="menu" href="/jobs">Job ads</a>
             </li>
             <li class="nav-item">
-                <a class="menu" href="">Job applications</a>
+                <a class="menu" href="/jobs/applications">Job applications</a>
             </li>
             <li class="nav-item">
-                <a class="menu" href="">Sign out</a>
+                <a class="menu" href="/jobs/signin">Sign out</a>
             </li>
         </ul>
 
@@ -44,9 +44,9 @@
 
     <div class="body" id="col-2">
 
-        <?php echo $content; ?>
+        <?php echo $content ?>
 
     </div>
 
 </body>
-</html>?php
+</html>

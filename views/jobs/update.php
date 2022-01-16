@@ -1,13 +1,13 @@
-<p>
+<div>
 
-    <a href="/ads/view" class="btn btn-secondary">Cancel edit</a>
+    <a class="button-details" href="/jobs/view?id=<?php echo $job['id'] ?>">Cancel edit</a>
 
-</p>
+</div>
 
-<h1>Edit job ad</h1>
+<h1 class="view-title">Edit job ad</h1>
 
 <?php
 
-    include_once "_form.php";
+    include "_form.php";
 
 ?>

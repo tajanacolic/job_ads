@@ -32,6 +32,8 @@ class Job
 
     public function save() {
 
+
+
         $errors = [];
 
         if (!$this->job_title) {

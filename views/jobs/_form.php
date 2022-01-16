@@ -6,28 +6,13 @@
     </div>
 <?php endif; ?>
 
-<form action="" method="post">
-
-    <?php if ($job['job_image']): ?>
-
-        <img src="/<?php echo $job['job_image'] ?>" class="update-image">
-
-    <?php endif; ?>
-
-    <div class="row">
-        <div class="col-25">
-            <label for="file">Choose image</label>
-        </div>
-        <div class="col-75">
-            <input type="file" name="image">
-        </div>
-    </div>
+<form style="padding-top: 100px" method="post">
 
     <div class="row">
         <div class="col-25">
             <label>Job title</label></div>
         <div class="col-75">
-            <input type="text" name="title" placeholder="Eg. Software developer" value="<?php echo $job ['job_title'] ?>">
+            <input type="text" name="job_title" placeholder="Eg. Software developer" value="<?php echo $job['job_title'] ?>">
         </div>
     </div>
 
@@ -36,7 +21,7 @@
             <label>Job Type</label>
         </div>
         <div class="col-75">
-            <input type="text" name="type" placeholder="Eg. Full time" value="<?php echo $job ['job_type'] ?>">
+            <input type="text" name="job_type" placeholder="Eg. Full time" value="<?php echo $job['job_type'] ?>">
         </div>
     </div>
 
@@ -45,7 +30,7 @@
             <label>Job location</label>
         </div>
         <div class="col-75">
-            <input type="text" name="place" placeholder="Eg. Bosnia and Herzegovina" value="<?php echo $job ['job_location'] ?>">
+            <input type="text" name="job_location" placeholder="Eg. Bosnia and Herzegovina" value="<?php echo $job['job_location'] ?>">
         </div>
     </div>
 
@@ -54,7 +39,7 @@
             <label for="subject">Job position requirements</label>
         </div>
         <div class="col-75">
-            <textarea name="requirements" placeholder="This job position requires..." style="height:200px" value="<?php echo $job ['job_requirements'] ?>"></textarea>
+            <textarea name="job_requirements" placeholder="This job position requires..." style="height:200px"><?php echo $job['job_requirements'] ?></textarea>
         </div>
     </div>
 
@@ -63,7 +48,7 @@
             <label for="subject">Job description</label>
         </div>
         <div class="col-75">
-            <textarea name="description" placeholder="Write something..." style="height:200px" value="<?php echo $job ['job_description'] ?>"></textarea>
+            <textarea name="job_description" placeholder="Write something..." style="height:200px"><?php echo $job['job_description'] ?></textarea>
         </div>
     </div>
 

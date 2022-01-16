@@ -27,7 +27,7 @@ class JobController
             'job_location' => '',
             'job_requirements' => '',
             'job_description' => '',
-            'job_image' => '',
+            'job_image' => ''
 
         ];
 
@@ -88,7 +88,7 @@ class JobController
 
             if (empty($errors)) {
 
-                header('Location: /jobs');
+                header('Location: /jobs/view');
                 exit;
 
             }
@@ -115,6 +115,27 @@ class JobController
 
         $router->db->deleteAd($id);
         header('Location: /jobs');
+
+    }
+
+    public static function view(Router $router) {
+
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+
+            header('Location: /jobs');
+            exit;
+
+        }
+
+        $errors = [];
+
+        $adData = $router->db->getAdById($id);
+
+        $router->renderView('jobs/view',
+            ['job' => $adData, 'errors' => $errors]);
+
 
     }
 
