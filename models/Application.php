@@ -59,7 +59,7 @@ class Application
             $errors[] = 'Phone number is required.';
 
         }
-        if (!$this->job_cvPath) {
+        if (!$this->job_cvFile['tmp_name']) {
 
             $errors[] = 'CV is required.';
 
@@ -75,12 +75,7 @@ class Application
 
             if ($this->job_cvFile && $this->job_cvFile['tmp_name']) {
 
-                if ($this->job_cvPath) {
-
-                    unlink(__DIR__ . '/../public/' . $this->job_cvPath);
-
-                }
-                $this->job_cvPath = 'cv/' . UtilHelper::randomString(8) . '/' . $this->job_cvFile['job_cv'];
+                $this->job_cvPath = 'cv/' . UtilHelper::randomString(8) . '/' . $this->job_cvFile['name'];
 
                 mkdir(dirname(__DIR__ . '/../public/' . $this->job_cvPath));
 
@@ -89,16 +84,7 @@ class Application
             }
 
             $db = Database::$db;
-
-            if ($this->app_id) {
-
-                $db->updateApp($this);
-
-            } else {
-
-                $db->createApp($this);
-
-            }
+            $db->createApp($this);
 
         }
         return $errors;

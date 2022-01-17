@@ -45,10 +45,10 @@ class Database
 
     }
 
-    public function getAppById($id) {
+    public function getAppById($app_id) {
 
         $statement = $this->pdo->prepare('SELECT * FROM job_app WHERE app_id = :app_id');
-        $statement->bindValue(':app_id', $id);
+        $statement->bindValue(':app_id', $app_id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -89,12 +89,12 @@ class Database
     public function createApp(Application $application)
     {
         $statement = $this->pdo->prepare("INSERT INTO job_app (job_name, job_surname, job_email, job_tel, job_cv, job_id, app_create_date)
-                VALUES (:job_name, :job_surname, :job_email, :job_tel, :job_cv, :job_id,, :date)");
+                VALUES (:job_name, :job_surname, :job_email, :job_tel, :job_cv, :job_id, :date)");
         $statement->bindValue(':job_name', $application->job_name);
         $statement->bindValue(':job_surname', $application->job_surname);
         $statement->bindValue(':job_email', $application->job_email);
         $statement->bindValue(':job_tel', $application->job_tel);
-        $statement->bindValue(':job_image', $application->job_cvPath);
+        $statement->bindValue(':job_cv', $application->job_cvPath);
         $statement->bindValue(':job_id', $application->job_id);
         $statement->bindValue(':date', date('Y-m-d H:i:s'));
 
@@ -105,6 +105,15 @@ class Database
 
         $statement = $this->pdo->prepare('DELETE FROM job_ads WHERE id = :id');
         $statement->bindValue(':id', $id);
+        $statement->execute();
+
+
+    }
+
+    public function deleteApp($app_id) {
+
+        $statement = $this->pdo->prepare('DELETE FROM job_app WHERE app_id = :app_id');
+        $statement->bindValue(':app_id', $app_id);
         $statement->execute();
 
 

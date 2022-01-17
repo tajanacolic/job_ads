@@ -304,6 +304,24 @@ input[type=submit]:hover {
 
 }
 
+.col-app {
+
+    position: relative;
+    width: 50%;
+    float: left;
+    height: 100%;
+
+}
+
+.col-ad {
+
+    position: relative;
+    width: 50%;
+    float: right;
+    height: 100%;
+
+}
+
 
 
 

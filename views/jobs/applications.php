@@ -8,7 +8,7 @@
             <td class="rest"> <?php echo $app['job_id'] ?> </td>
             <td>
 
-                <a class="button-details" href="/jobs/view?id=<?php echo $app['app_id'] ?>">Details</a>
+                <a class="button-details" href="/jobs/applications/view?app_id=<?php echo $app['app_id'] ?>">Details</a>
 
             </td>
         </tr>

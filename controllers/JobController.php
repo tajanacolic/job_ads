@@ -38,7 +38,7 @@ class JobController
             $adData['job_location'] = $_POST['job_location'];
             $adData['job_requirements'] = $_POST['job_requirements'];
             $adData['job_description'] = $_POST['job_description'];
-            $adData['job_imageFile'] = $_FILES['job_image'] ?? null;
+            $adData['job_image'] = $_FILES['job_image'] ?? null;
 
             $job = new Job();
             $job->load($adData);
@@ -88,7 +88,7 @@ class JobController
 
             if (empty($errors)) {
 
-                header('Location: /jobs/view');
+                header('Location: /jobs');
                 exit;
 
             }

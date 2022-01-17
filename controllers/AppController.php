@@ -26,6 +26,8 @@ class AppController
             'job_surname' => '',
             'job_email' => '',
             'job_tel' => '',
+            'job_id' => '',
+            'job_cvFile' => '',
             'job_cv' => ''
 
         ];
@@ -36,7 +38,7 @@ class AppController
             $appData['job_surname'] = $_POST['job_surname'];
             $appData['job_email'] = $_POST['job_email'];
             $appData['job_tel'] = $_POST['job_tel'];
-            $appData['job_description'] = $_POST['job_description'];
+            $appData['job_id'] = $_POST['job_id'];
             $appData['job_cvFile'] = $_FILES['job_cv'];
 
             $application = new Application();
@@ -45,15 +47,68 @@ class AppController
 
             if (empty($errors)) {
 
-                header('Location: /jobs');
+                header('Location: /jobs/view');
                 exit;
 
             }
 
         }
 
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+
+            header('Location: /jobs');
+            exit;
+
+        }
+
+        $adData = $router->db->getAdById($id);
+
         $router->renderView('jobs/view',
-            ['application' => $appData, 'errors' => $errors]);
+            ['application' => $appData,
+                'job' => $adData,
+                'errors' => $errors]);
+
+    }
+
+    public static function delete_app(Router $router) {
+
+        $app_id = $_POST['app_id'] ?? null;
+
+        if (!$app_id) {
+
+            header('Location: /jobs/applications');
+            exit;
+
+        }
+
+        $router->db->deleteApp($app_id);
+        header('Location: /jobs/applications');
+
+    }
+
+    public static function view_app(Router $router) {
+
+        $app_id = $_GET['app_id'] ?? null;
+        $job_id = $_GET['job_id'] ?? null;
+
+        if (!$app_id && !$job_id) {
+
+            header('Location: /jobs/applications');
+            exit;
+
+        }
+
+        $errors = [];
+
+        $adData = $router->db->getAdById($job_id);
+        $appData = $router->db->getAppById($app_id);
+
+        $router->renderView('jobs/appview',
+            ['app' => $appData,
+                'job' => $adData,
+                'errors' => $errors]);
 
     }
 
