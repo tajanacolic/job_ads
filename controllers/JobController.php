@@ -142,11 +142,19 @@ class JobController
         }
 
         $errors = [];
-
+        $appData = [
+            'job_name' => '',
+            'job_surname' => '',
+            'job_email' => '',
+            'job_tel' => '',
+            'job_id' => '',
+            'job_cvFile' => '',
+            'job_cv' => ''
+        ];
         $adData = $router->db->getAdById($id);
 
         $router->renderView('jobs/view',
-            ['job' => $adData, 'errors' => $errors]);
+            ['job' => $adData, 'errors' => $errors, 'application' =>$appData]);
 
     }
 }
