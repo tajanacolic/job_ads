@@ -16,7 +16,7 @@
             <div class="col-25">
                 <label>Name</label></div>
             <div class="col-75">
-                <input type="text" name="job_name" placeholder="Eg. John">
+                <input type="text" name="job_name" placeholder="Eg. John" >
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <input type="hidden" name="job_id" value="<?php echo $job['id'] ?>">
+        <input type="hidden" name="job_id">
 
         <br>
 

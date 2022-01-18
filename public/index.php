@@ -1,6 +1,7 @@
 <?php
-
-
+session_start();
+$_SESSION['name'] =  $_SESSION['name'] ?? 'user';
+$_SESSION['activity'] = $_SESSION['activity'] ?? '';
 require_once __DIR__.'/../vendor/autoload.php';
 
 use app\Router;
@@ -26,4 +27,5 @@ $router->get('/jobs/applications', [AppController::class, 'index_app']);
 $router->get('/jobs/applications/view', [AppController::class, 'view_app']);
 $router->get('/jobs/signin',[AdminController::class,'signin']);
 $router->post('/jobs/signin',[AdminController::class,'signin']);
+$router->get('/jobs/signout', [AdminController::class, 'signout']);
 $router->resolve();

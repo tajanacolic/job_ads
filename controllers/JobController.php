@@ -17,7 +17,11 @@ class JobController
     }
 
     public static function create(Router $router) {
-
+        if($_SESSION['name'] === "user")
+        {
+            header('Location: /jobs');
+            exit;
+        }
         $errors = [];
 
         $adData = [
@@ -59,7 +63,11 @@ class JobController
     }
 
     public static function update(Router $router) {
-
+        if($_SESSION['name'] === "user")
+        {
+            header('Location: /jobs');
+            exit;
+        }
         $id = $_GET['id'] ?? null;
 
         if (!$id) {
@@ -103,7 +111,11 @@ class JobController
     }
 
     public static function delete(Router $router) {
-
+        if($_SESSION['name'] === "user")
+        {
+            header('Location: /jobs');
+            exit;
+        }
         $id = $_POST['id'] ?? null;
 
         if (!$id) {
@@ -136,7 +148,5 @@ class JobController
         $router->renderView('jobs/view',
             ['job' => $adData, 'errors' => $errors]);
 
-
     }
-
 }

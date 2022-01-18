@@ -30,22 +30,39 @@
 
     <div class="header">
     </div>
-
+    <?php 
+        if($_SESSION['activity'] === 'applied'):
+        $close = false;
+        include_once __DIR__ . '/jobs/modal.php';
+        $_SESSION['activity'] = '';
+        endif;
+    ?>
     <div id="col-1">
 
         <ul class="nav flex-column">
+            <?php if($_SESSION['name'] === 'admin'): ?>
             <li class="nav-item">
                 <a class="menu" href="/jobs/create">Create new job ad</a>
             </li>
+            <?php endif; ?>
             <li class="nav-item">
                 <a class="menu" href="/jobs">Job ads</a>
             </li>
+            <?php if($_SESSION['name'] === 'admin'): ?>
             <li class="nav-item">
                 <a class="menu" href="/jobs/applications">Job applications</a>
             </li>
             <li class="nav-item">
+                <a class="menu" href="/jobs/signout">Sign out</a>
+            </li>
+            <?php endif; 
+                if($_SESSION['name'] === "user"):
+            ?>
+            <li class="nav-item">
                 <a class="menu" href="/jobs/signin">Sign in</a>
             </li>
+            <?php endif; ?>
+            
         </ul>
 
     </div>

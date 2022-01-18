@@ -1,3 +1,4 @@
+<?php if($_SESSION['name'] === "admin"): ?>
 <div>
 
     <a class="button-details" href="/jobs/view/update?id=<?php echo $job['id'] ?>">Edit</a>
@@ -15,6 +16,7 @@
     </form>
 
 </div>
+<?php endif; ?>
 
 <h1 class="view-title"><?php echo $job['job_title'] ?></h1>
 

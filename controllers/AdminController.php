@@ -26,6 +26,8 @@ class AdminController {
             $errors = $admin -> check();
             if(empty($errors))
             {
+                session_start();
+                $_SESSION['name'] = 'admin';
                 header('Location:/jobs');
                 exit;
             }
@@ -34,5 +36,10 @@ class AdminController {
             "admin" => $adminData, 
             "errors" => $errors
         ]);
+    }
+
+    public static function signout() {
+        $_SESSION['name'] = "user";
+        header('Location:/jobs');
     }
 }
