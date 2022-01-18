@@ -119,4 +119,10 @@ class Database
 
     }
 
+    public function getAdmin(){
+        $statement = $this -> pdo -> prepare('SELECT * FROM job_admin');       
+        $statement -> execute();
+        return $statement -> fetchAll(PDO::FETCH_ASSOC);       
+    }
+
 }

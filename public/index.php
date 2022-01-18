@@ -6,6 +6,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 use app\Router;
 use app\controllers\JobController;
 use app\controllers\AppController;
+use app\controllers\AdminController;
 
 $router = new Router();
 
@@ -23,5 +24,6 @@ $router->post('/jobs/view/delete', [JobController::class, 'delete']);
 $router->post('/jobs/applications/view/delete', [AppController::class, 'delete_app']);
 $router->get('/jobs/applications', [AppController::class, 'index_app']);
 $router->get('/jobs/applications/view', [AppController::class, 'view_app']);
-
+$router->get('/jobs/signin',[AdminController::class,'signin']);
+$router->post('/jobs/signin',[AdminController::class,'signin']);
 $router->resolve();

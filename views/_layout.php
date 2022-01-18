@@ -44,7 +44,7 @@
                 <a class="menu" href="/jobs/applications">Job applications</a>
             </li>
             <li class="nav-item">
-                <a class="menu" href="/jobs/signin">Sign out</a>
+                <a class="menu" href="/jobs/signin">Sign in</a>
             </li>
         </ul>
 

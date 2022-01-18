@@ -109,7 +109,7 @@ li a.active {
     height: 100%;
 }
 
-input[type=text], [type=email], [type=tel], select, textarea {
+input[type=text], [type=email], [type=password], [type=tel], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -322,6 +322,9 @@ input[type=submit]:hover {
 
 }
 
+.signinbutton {
+    margin-top: 30px;
+}
 
 
 
