@@ -89,12 +89,16 @@ li a.active {
 }
 
 #col-1 {
-    position: absolute;
+
+    position: fixed;
+    overflow-x: hidden;
     width: 20%;
     float: left;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding-top: 140px;
+    top: 0;
+    left: 0;
     background-color: hsl(180, 29%, 50%);
     font-family: 'Spartan', sans-serif;
     font-weight: 700;
